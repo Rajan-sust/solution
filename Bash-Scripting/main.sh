@@ -1,16 +1,23 @@
 #!/bin/bash
 
 mkdir -p DSiBashTestDir/textfiles DSiBashTestDir/zipfiles
-chmod 600 DSiBashTestDir/textfiles
-
 cd DSiBashTestDir/textfiles
 
 now=$(date +"%d%m%y")
 user=$(whoami)
 
+function fname() {
+
+}
+
+function zname() {
+    
+}
+
 for k in {0..999}; do
     file_id=$(( k + 1 ))
     zip_id=$(( k / 200 + 1 ))
+    touch "file_${user}_${now}_${file_id}.txt"
     echo -n "file_${user}_${now}_${file_id}.txt|zipfile_${user}_${now}_${zip_id}.zip" > \
     "file_${user}_${now}_${file_id}.txt"
 done
@@ -28,3 +35,5 @@ for i in {0..4}; do
         fi
     done
 done
+
+chmod 700 DSiBashTestDir/textfiles
