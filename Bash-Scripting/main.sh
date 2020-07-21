@@ -6,20 +6,12 @@ cd DSiBashTestDir/textfiles
 now=$(date +"%d%m%y")
 user=$(whoami)
 
-function fname() {
-
-}
-
-function zname() {
-    
-}
-
 for k in {0..999}; do
     file_id=$(( k + 1 ))
     zip_id=$(( k / 200 + 1 ))
-    touch "file_${user}_${now}_${file_id}.txt"
-    echo -n "file_${user}_${now}_${file_id}.txt|zipfile_${user}_${now}_${zip_id}.zip" > \
-    "file_${user}_${now}_${file_id}.txt"
+    fname="file_${user}_${now}_${file_id}.txt"
+    zname="zipfile_${user}_${now}_${zip_id}.zip"
+    echo -n "${fname}|${zname}" > "${fname}"
 done
 
 cd ../zipfiles
@@ -27,13 +19,17 @@ cd ../zipfiles
 for i in {0..4}; do
     zip_id=$(( i + 1 ))
     for j in {1..200}; do
-        file_id=$((200 * i + j))
-        if [[ -f "zipfile_${user}_${now}_${zip_id}.zip" ]]; then
-            zip -u "zipfile_${user}_${now}_${zip_id}.zip" "../textfiles/file_${user}_${now}_${file_id}.txt"
+        file_id=$(( 200 * i + j ))
+        fpath="../textfiles/file_${user}_${now}_${file_id}.txt"
+        zname="zipfile_${user}_${now}_${zip_id}.zip"
+        if [[ -f "${zname}" ]]; then
+            zip -u "${zname}" "${fpath}"
         else
-            zip "zipfile_${user}_${now}_${zip_id}.zip" "../textfiles/file_${user}_${now}_${file_id}.txt"
+            zip "${zname}" "${fpath}"
         fi
     done
 done
 
-chmod 700 DSiBashTestDir/textfiles
+cd ..
+chmod 700 textfiles
+cd ..
