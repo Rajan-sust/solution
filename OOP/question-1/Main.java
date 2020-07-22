@@ -1,6 +1,4 @@
-import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.Map;
 import java.util.Scanner;
 
 
@@ -67,36 +65,47 @@ class VehicleShowRoom {
         hv = new LinkedList<HeavyVehicle>();
     }
     void addVehicle() {
-        HashMap<String, String> mp = new HashMap<String, String>() {{
-            put("a", "normal");
-            put("b", "sports");
-            put("c", "heavy");
-        }};
+       
         Scanner scanner = new Scanner(System.in);
         
-        System.out.print("Choose vehicle Type\n(a) Normal\n(b) Sports\n(c) Heavy\nEnter (a/b/c):");
-        String vehicleType = mp.get(scanner.next());
+        System.out.print("Possible vehicle type\n(a) normal\n(b) sports\n(c) heavy\nEnter vehicle type: ");
+        String vehicleType = scanner.next();
         
-        System.out.print("Enter Model Number:");
+        System.out.print("Enter Model Number: ");
         String modelNumber = scanner.next();
         
-        System.out.print("Enter Engine Power (e.g. 7.5):");
+        System.out.print("Enter Engine Power (e.g. 7.5): ");
         double enginePower = scanner.nextDouble();
         
-        System.out.print("Enter Tire Size (e.g. 36):");
+        System.out.print("Enter Tire Size (e.g. 36): ");
         int tireSize = scanner.nextInt();
         
         if(vehicleType == "normal") {
-            System.out.print("Enter Engine Type (oil/gas/diesel):");
+            System.out.print("Possible engine type\n(a) oil\n(b) gas\n(c) diesel\nEnter engine type: ");
             String engineType = scanner.next();
             nv.add(new Vehicle(modelNumber, engineType, enginePower, tireSize));
         } else if(vehicleType == "sports") {
             sv.add(new SportsVehicle(modelNumber, enginePower, tireSize));
         } else {
-            System.out.print("Enter Weight (e.g. 1000):");
+            System.out.print("Enter Weight (e.g. 1000): ");
             int weight = scanner.nextInt();
             hv.add(new HeavyVehicle(modelNumber, enginePower, tireSize, weight));
         }
+
+        scanner.close();
+    }
+    private void removeNormal(String modelNumber) {
+        // for(int i = 0; i < nv.size(); i++) {
+        //     if(nv.)
+        // }
+    }
+    void removeVehicle() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("What type of vehicle you want to remove?\n(a) normal\n(b) sports\n(c) heavy\nEnter vehicle type: ");
+        String vehicleType = scanner.next();
+        System.out.print("Please, enter model number: ");
+        String modelNumber = scanner.next();
+
         scanner.close();
     }
 
