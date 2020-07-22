@@ -74,26 +74,26 @@ class VehicleShowRoom {
         }};
         Scanner scanner = new Scanner(System.in);
         
-        System.out.print("Choose vehicle Type\n(a) Normal\n(b) Sports\n(c) Heavy\nType (a/b/c):");
+        System.out.print("Choose vehicle Type\n(a) Normal\n(b) Sports\n(c) Heavy\nEnter (a/b/c):");
         String vehicleType = mp.get(scanner.next());
         
-        System.out.print("Model Number:");
+        System.out.print("Enter Model Number:");
         String modelNumber = scanner.next();
         
-        System.out.print("Engine Power (e.g. 7.5):");
+        System.out.print("Enter Engine Power (e.g. 7.5):");
         double enginePower = scanner.nextDouble();
         
-        System.out.print("Tire Size (e.g. 36):");
+        System.out.print("Enter Tire Size (e.g. 36):");
         int tireSize = scanner.nextInt();
         
         if(vehicleType == "normal") {
-            System.out.print("Engine Type (oil/gas/diesel):");
+            System.out.print("Enter Engine Type (oil/gas/diesel):");
             String engineType = scanner.next();
             nv.add(new Vehicle(modelNumber, engineType, enginePower, tireSize));
         } else if(vehicleType == "sports") {
             sv.add(new SportsVehicle(modelNumber, enginePower, tireSize));
         } else {
-            System.out.print("Weight (e.g. 1000):");
+            System.out.print("Enter Weight (e.g. 1000):");
             int weight = scanner.nextInt();
             hv.add(new HeavyVehicle(modelNumber, enginePower, tireSize, weight));
         }
