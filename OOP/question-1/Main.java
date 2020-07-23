@@ -133,9 +133,8 @@ class VehicleShowRoom {
     }
 
     
-    //Assuming model number is qunique identity
     void removeVehicle(Scanner scanner) {
-        System.out.print("What type of vehicle you want to remove?\n(a) normal\n(b) sports\n(c) heavy\nChoose a vehicle type.\n(rm) >>> ");
+        System.out.print("What type of vehicle you want to remove?\n(a) normal\n(b) sports\n(c) heavy\nChoose a vehicle type from above.\n(rm) >>> ");
         String vehicleType = scanner.next();
         System.out.print("Enter Model Number (e.g. AB12#xy).\n(rm) >>> ");
         String modelNumber = scanner.next();
