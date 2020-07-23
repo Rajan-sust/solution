@@ -19,10 +19,10 @@ class Vehicle {
     }
     @Override
     public String toString() {
-        return  "ModelNumber: " + this.modelNumber
-                + "\nEngineType: " + this.engineType
-                + "\nEnginePower: " + this.enginePower
-                + "\nTireSize: " + this.tireSize;
+        return  "{\"model\" : " + this.modelNumber
+                + ", \"engine\" : " + this.engineType
+                + ", \"power\" : " + this.enginePower
+                + ", \"tire size\" : " + this.tireSize + "}";
     }
 
 }
@@ -35,7 +35,7 @@ class SportsVehicle extends Vehicle {
     }
     @Override
     public String toString() {
-        return super.toString() + "\nAdditional Feature: Turbo";    
+        return super.toString().replace('}', ',') + " \"additional\" : Turbo}";    
     }
 
 }
@@ -49,7 +49,7 @@ class HeavyVehicle extends Vehicle {
     }
     @Override
     public String toString() {
-        return super.toString() + "\nWeight: " + this.weight;
+        return super.toString().replace('}', ',') + " \"weight\" : " + this.weight + "}";
     }
 }
 
@@ -70,136 +70,128 @@ class VehicleShowRoom {
     }
     private void addSports(String modelNumber, double enginePower, int tireSize) {
         sv.add(new SportsVehicle(modelNumber, enginePower, tireSize));
-        System.out.println("Successful addition of a sports vehicle.")
+        System.out.println("Successful addition of a sports vehicle.");
     }
     private void addHeavy(String modelNumber, double enginePower, int tireSize, int weight) {
         hv.add(new HeavyVehicle(modelNumber, enginePower, tireSize, weight));
-        System.out.println("Successful addition of a heavy vehicle.")
+        System.out.println("Successful addition of a heavy vehicle.");
     }
-    void addVehicle() {
-       
-        Scanner scanner = new Scanner(System.in);
-        
-        System.out.print("Possible vehicle type\n(a) normal\n(b) sports\n(c) heavy\nEnter vehicle type: ");
+    void addVehicle(Scanner scanner) {
+        System.out.print("Possible vehicle type\n(a) normal\n(b) sports\n(c) heavy\nChoose a vehicle type from above.\n(add) >>> ");
         String vehicleType = scanner.next();
         
-        System.out.print("Enter Model Number: ");
+        System.out.print("Enter Model Number (e.g. AB12#xy).\n(add) >>> ");
         String modelNumber = scanner.next();
         
-        System.out.print("Enter Engine Power (e.g. 7.5): ");
+        System.out.print("Enter Engine Power (e.g. 7.5).\n(add) >>> ");
         double enginePower = scanner.nextDouble();
         
-        System.out.print("Enter Tire Size (e.g. 36): ");
+        System.out.print("Enter Tire Size (e.g. 36).\n(add) >>> ");
         int tireSize = scanner.nextInt();
         
-        if(vehicleType == "normal") {
-            System.out.print("Possible engine type\n(a) oil\n(b) gas\n(c) diesel\nEnter engine type: ");
+        if(vehicleType.equals("normal")) {
+            System.out.print("Possible engine type\n(a) oil\n(b) gas\n(c) diesel\nEnter engine type.\n(add) >>> ");
             String engineType = scanner.next();
-            aaddNormal(modelNumber, engineType, enginePower, tireSize);
-        } else if(vehicleType == "sports") {
+            addNormal(modelNumber, engineType, enginePower, tireSize);
+        } else if(vehicleType.equals("sports")) {
             addSports(modelNumber, enginePower, tireSize);
         } else {
-            System.out.print("Enter Weight (e.g. 1000): ");
+            System.out.print("Enter Weight (e.g. 1000).\n(add) >>> ");
             int weight = scanner.nextInt();
             addHeavy(modelNumber, enginePower, tireSize, weight);
         }
-        scanner.close();
     }
     private void removeNormal(String modelNumber) {
         for(Vehicle v: nv) {
-            if(v.modelNumber == modelNumber) {
+            if(v.modelNumber.equals(modelNumber)) {
                 nv.remove(v);
-                System.out.println("Successful removal of a normal car.");
+                System.out.println("Successful removal of a normal vehicle.");
                 return;
             }
         }
-        System.out.println("Sorry! There is no such car.");
+        System.out.println("Sorry! There is no such vehicle.");
     }
     private void removeSports(String modelNumber) {
         for(SportsVehicle v: sv) {
-            if(v.modelNumber == modelNumber) {
+            if(v.modelNumber.equals(modelNumber)) {
                 sv.remove(v);
-                System.out.println("Succesful removal of a sports car.");
+                System.out.println("Succesful removal of a sports vehicle.");
                 return;
             }
         }
-        System.out.println("Sorry! There is no such car.");
+        System.out.println("Sorry! There is no such vehicle.");
     }
-
     private void removeHeavy(String modelNumber) {
         for(HeavyVehicle v: hv) {
-            if(v.modelNumber == modelNumber) {
+            if(v.modelNumber.equals(modelNumber)) {
                 hv.remove(v);
-                System.out.println("Successfully removal of a heavy car.");
+                System.out.println("Successfully removal of a heavy vehicle.");
                 return;
             }
         }
-        System.out.println("Sorry! There is no such car.");
+        System.out.println("Sorry! There is no such vehicle.");
     }
 
-    void showVehicle() {
-        System.out.println("1. Normal Vehicles:");
-        for(Vehicle v: nv) {
-            System.out.println(v);
-        }
-        System.out.prinln("2. Sports Vehicle:");
-        for(SportsVehicle v: sv) {
-            System.out.println(v);
-        }
-        System.out.println("3. Heavy Vehicle:");
-        for(HeavyVehicle v: hv) {
-            System.out.println(v);
-        }
-    }
+    
     //Assuming model number is qunique identity
-    void removeVehicle() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("What type of vehicle you want to remove?\n(a) normal\n(b) sports\n(c) heavy\nEnter vehicle type: ");
+    void removeVehicle(Scanner scanner) {
+        System.out.print("What type of vehicle you want to remove?\n(a) normal\n(b) sports\n(c) heavy\nChoose a vehicle type.\n(rm) >>> ");
         String vehicleType = scanner.next();
-        System.out.print("Please, enter model number: ");
+        System.out.print("Enter Model Number (e.g. AB12#xy).\n(rm) >>> ");
         String modelNumber = scanner.next();
-        if(vehicleType == "normal") {
+        if(vehicleType.equals("normal")) {
             removeNormal(modelNumber);
-        } else if(vehicleType == "sports") {
+        } else if(vehicleType.equals("sports")) {
             removeSports(modelNumber);
         } else {
             removeHeavy(modelNumber);
         }
-        scanner.close();
     }
 
+    void showVehicle() {
+        System.out.println("Normal:");
+        for(Vehicle v: nv) {
+            System.out.println(v);
+        }
+        System.out.println("Sports:");
+        for(SportsVehicle v: sv) {
+            System.out.println(v);
+        }
+        System.out.println("Heavy:");
+        for(HeavyVehicle v: hv) {
+            System.out.println(v);
+        }
+    }
 }
 
 public class Main {
     public static void help() {
-        System.out.println("(1) add: For adding a vehicle.\n(2) remove: For removing a vehicle.\n(3) show: Display all vehicles.\n(4) exit: quit.");
+        System.out.println("Available commands:\n(1) add: Requests for adding a vehicle.\n(2) rm: Requests for removing a vehicle.\n(3) show: Display all vehicles.\n(4) exit: Quit.");
     }
     public static void main(String[] args) {
         VehicleShowRoom vsr = new VehicleShowRoom();
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter `help` for any support");
+        System.out.println("A Vehicle Showroom System. Enter \"help\" for any support.");
         while (true) {
             System.out.print(">>> ");
             String command = scanner.next();
-            if(command == "help") {
+            if(command.equals("help")) {
                 help();
-            } else if(command == "add") {
-                vsr.addVehicle(); 
-            } else if(command == "remove") {
-                vsr.removeVehicle();
-            } else if(command == "show") {
+            } else if(command.equals("add")) {
+                vsr.addVehicle(scanner); 
+            } else if(command.equals("rm")) {
+                vsr.removeVehicle(scanner);
+            } else if(command.equals("show")) {
                 vsr.showVehicle();
-            } else if(command == "exit") {
+            } else if(command.equals("exit")) {
                 break;
             } else {
-                System.out.println("Wrong command. Enter `help` for any support.");
+                System.out.println("Wrong command. Enter \"help\" for any support.");
             }
-            
         }
         scanner.close();          
     }
 }
-
 
 /*
 Vehicle vehicle = new Vehicle("123456", "oil", 5.4, 16);
@@ -208,4 +200,9 @@ SportsVehicle sv = new  SportsVehicle("45678", 7.8, 21);
 System.out.println(sv);
 HeavyVehicle hv = new HeavyVehicle("98489", 7.1, 36, 100);
 System.out.println(hv);
-*/        
+*/
+
+// For console apps, use a single Scanner to read from System.in. You close the second Scanner which closes the underlying InputStream, therefore the first Scanner can no longer read from the same InputStream and a NoSuchElementException results.
+
+
+//List of normal vehicles:
