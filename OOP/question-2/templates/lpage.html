@@ -3,18 +3,10 @@
   <head>
     <title>Two Page Application</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
+  
   <body>
-    <h2 id="msg" style="text-align: center;"></h2>
+    <h2 id="msg" style="text-align: center;">{{msg}}</h2>
   </body>
-  <script type="text/javascript">
-      let url = window.location.href;
-      let arg = new URL(url).searchParams.get("success");
-      if(arg == "true") {
-        document.getElementById("msg").innerText = "Congratulations!";
-      } else {
-        document.getElementById("msg").innerText = "Sorry!"
-      }
-  </script>
+  
 </html>
