@@ -1,0 +1,72 @@
+                      SOME COMPANY
+                      SOME CREDIT UNION
+                      LOS ANGELES, CA 90044
+                              
+                      000000.000.000000.000.000000
+                      THOMAS R. KESTERSON                              STATEMENT DATE    PAGE
+                      4113 CALLISON LANE                                  01/15/20          1
+                      PHILADELPHIA, DE 19108
+                                                                         STATEMENT PERIOD
+                                                                           01/01/19 TO 12/31/19
+                TRANSACTION DESCRIPTION____________________DATE_________AMOUNT__________BALANCE
+                TRANSACTION 1                            11/30/19        10.27         5,380.62
+                TRANSACTION 2                            12/31/19        10.63         5,391.25
+                TRANSACTION 3                            05/31/19         5.08         3,266.65
+
+                       ------ CONTINUED ON NEXT PAGE ------
+                      SOME COMPANY
+                      SOME CREDIT UNION
+                      LOS ANGELES, CA 90044
+                      THOMAS R. KESTERSON                              STATEMENT DATE    PAGE
+                      4113 CALLISON LANE                                  01/15/20          2
+                      PHILADELPHIA, DE 19108
+                                                                         STATEMENT PERIOD
+                                                                           01/01/19 TO 12/31/19
+                TRANSACTION DESCRIPTION____________________DATE_________AMOUNT__________BALANCE
+                TRANSACTION 4                            11/30/19         4.97         3,296.83
+                TRANSACTION 5                            12/31/19         5.14         3,301.97
+                TRANSACTION 6                            01/31/19         2.85         2,817.54
+                       ------ CONTINUED ON NEXT PAGE ------
+                      SOME COMPANY
+                      SOME CREDIT UNION
+                      LOS ANGELES, CA 90044
+
+                      THOMAS R. KESTERSON                              STATEMENT DATE    PAGE
+                      4113 CALLISON LANE                                  01/15/20          3
+                      PHILADELPHIA, DE 19108
+                                                                         STATEMENT PERIOD
+                                                                           01/01/19 TO 12/31/19
+                                      EDUC PLAN - GUARDIAN STATEMENT
+                TRANSACTION DESCRIPTION____________________DATE_________AMOUNT__________BALANCE
+                TRANSACTION 7                            12/31/19         6.99         3,039.05
+                ************************************************************************
+                       ------ CONTINUED ON NEXT PAGE ------
+                      SOME COMPANY
+                      SOME CREDIT UNION
+                      LOS ANGELES, CA 90044
+
+                      ROY A. REEVES                              STATEMENT DATE    PAGE
+                      4760 BLAIR COURT                                  01/15/20          1
+                      PHILADELPHIA, DE 19108
+                TRANSACTION DESCRIPTION____________________DATE_________AMOUNT__________BALANCE
+                TRANSACTION 1                            11/30/19         3.66         2,248.26
+                TRANSACTION 2                            12/31/19         3.79         2,252.05
+                TRANSACTION 3                             08/31/19          .92         2,164.89
+
+                       ------ CONTINUED ON NEXT PAGE ------
+                      SOME COMPANY
+                      SOME CREDIT UNION
+                      LOS ANGELES, CA 90044
+
+                      ROY A. REEVES                              STATEMENT DATE    PAGE
+                      4760 BLAIR COURT                                  01/15/20          2
+                      PHILADELPHIA, DE 19108
+                                                                         STATEMENT PERIOD
+                                                                           01/01/19 TO 12/31/19
+                TRANSACTION DESCRIPTION____________________DATE_________AMOUNT__________BALANCE
+                TRANSACTION 4                             10/10/19          .27         2,166.05
+                TRANSACTION 5                             10/31/19          .65         2,166.70
+
+                ************************************************************************
+                CERTIFICATE: XXXXXXXXX
+                 TERM :   60  MONTHS

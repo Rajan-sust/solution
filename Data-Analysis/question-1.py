@@ -60,5 +60,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-# python3 main.py -h
-# python3 main.py --path data.txt
