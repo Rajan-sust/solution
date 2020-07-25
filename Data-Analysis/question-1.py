@@ -1,4 +1,5 @@
 import argparse
+import json
 
 def read_data(path):
     with open(path, mode='r', encoding='utf-8') as file:
@@ -32,19 +33,19 @@ def show_account_number(tuples):
     print('\n'.join(account_no for _, account_no, _, _ in tuples))
 
 def show_account_more_than_fifty_lines(tuples):
-    print('All account numbers that has more then 50 lines:')
+    print('\nAll account numbers that has more then 50 lines:')
     print('\n'.join(account_no for no_of_lines, account_no, _, _ in tuples if no_of_lines > 50))
     
-# If tie occurs, selecting one randomly 
+# If tie occurs, selecting one 
 def show_account_with_highest_number_of_lines(data, tuples):
-    print('All lines:')
+    print('\nThe account (all of its lines) that has highest number of lines:')
     tup = max(tuples, key=lambda x: x[0])
     for no in range(tup[3], tup[3] + tup[0]):
         print(data[no])
 def show_account_name_account_no_total_lines(tuples):
-    print('account_name---account_number--total_lines')
+    print('\nAll info:')
     for no_of_lines, account_no, customer_name, _ in tuples:
-        print(f'{customer_name}---{account_no}---{no_of_lines}')
+        print(json.dumps({'name' : customer_name, 'account_no' : account_no, 'number of lines' : no_of_lines}, indent=4))
 
 def main():
     parser = argparse.ArgumentParser()
